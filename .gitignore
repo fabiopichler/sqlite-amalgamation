@@ -1,0 +1,5 @@
+.idea
+*.txt.user*
+.directory
+/cmake-build*
+/build
