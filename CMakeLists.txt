@@ -6,10 +6,13 @@ if(NOT CMAKE_BUILD_TYPE)
     set(CMAKE_BUILD_TYPE Release)
 endif()
 
-set(CMAKE_POSITION_INDEPENDENT_CODE ON)
+set(INCLUDE_FILES
+    include/sqlite3.h
+    include/sqlite3ext.h
+)
 
 set(SRC_FILES
-    include/sqlite3.h
+    ${INCLUDE_FILES}
     src/sqlite3.c
 )
 
@@ -20,3 +23,6 @@ target_include_directories(sqlite3 PRIVATE include)
 if(UNIX)
     set_property(TARGET sqlite3 PROPERTY POSITION_INDEPENDENT_CODE TRUE)
 endif()
+
+install(TARGETS sqlite3)
+install(FILES ${INCLUDE_FILES} DESTINATION "${CMAKE_INSTALL_PREFIX}/include/sqlite3")
