@@ -1,0 +1,13 @@
+prefix=@prefix@
+includedir=${prefix}/@includedir@
+libdir=${prefix}/@libdir@
+
+Name: sqlite3
+URL: https://www.sqlite.org
+Description: SQLite is a C-language library that implements a small, fast, self-contained, high-reliability, full-featured, SQL database engine.
+Version: @PACKAGE_VERSION@
+Requires:
+Requires.private:
+Libs: -L${libdir} -lsqlite3 @LIBS_PUBLIC@
+Libs.private: @LIBS_PRIVATE@
+Cflags: -I${includedir}
